@@ -46,7 +46,7 @@ nodes.forEach( node => {
     };
 });
 
-    document.getElementsByClassName("logo doodle")[0].querySelector("a").setAttribute("tabindex", "-1");
+document.querySelector(".logo").querySelector("a").setAttribute("tabindex", "-1");
 
 var nodes = document.querySelectorAll(".cUezCb.luh4tb.O9g5cc.uUPGi");
 if (document.querySelectorAll(".cUezCb.luh4tb.O9g5cc.uUPGi")){

@@ -5,6 +5,8 @@ javascript:(()=>{
     tabList.forEach ( tab => {
         if (tab.innerText === "画像") {
             tab.click();
+        } else if (tab.innerText === "Images"){
+            tab.click();
         };
     });
 })()
