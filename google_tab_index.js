@@ -3,8 +3,10 @@ javascript: (() => {
     skipToContent();
 
     function skipToContent() {
-        document.querySelector('[jsname="BKxS1e"]').click();
+        var nodes = document.querySelectorAll(".yuRUbf");
+        nodes[0].firstElementChild.focus();
     };
+
     document.querySelector("#pnnext").onfocus = function () {
         skipToContent();
     };
@@ -16,7 +18,7 @@ javascript: (() => {
     if (document.querySelectorAll(".rGhul.IHSDrd")) {
         var nodes = document.querySelectorAll(".rGhul.IHSDrd");
         nodes.forEach(node => {
-            node.setAttribute("tabindex", "-1");
+            node.remove();
         });
     };
 
@@ -33,41 +35,50 @@ javascript: (() => {
         node.remove();
     });
 
-    if (document.querySelectorAll(".fl.iUh30").length){
+    if (document.querySelectorAll(".fl.iUh30").length) {
         var translateLinks = document.querySelectorAll(".fl.iUh30");
-        translateLinks.forEach( link => {
+        translateLinks.forEach(link => {
             link.remove();
         });
     };
 
     var nodes = document.querySelectorAll(".yuRUbf");
-    nodes = Array.from(nodes);
     nodes.forEach(node => {
         if (node.querySelector(".GHDvEf")) {
             node.querySelector(".GHDvEf").remove();
         };
     });
-
+    
+if (document.querySelector(".logo").querySelector("a")) {
     document.querySelector(".logo").querySelector("a").remove();
+}
 
-
+    var i = 0;
     document.querySelector("#rso").addEventListener("keydown", function (event) {
+    
+
+        var nodes = document.querySelectorAll(".yuRUbf");
+
         if (event.key === "w") {
-            if (前の要素があれば) {
-                前の要素にフォーカス
+            if (nodes[parseInt(i) - 1]) {
+                i = parseInt(i) - 1;
+                nodes[i].firstElementChild.focus();
                 document.activeElement.scrollIntoView({
                     behavior: "auto",
                     block: "center"
                 });
-            }
+            };
+            console.log(i)
         } else if (event.key === "s") {
-            if (後の要素があれば) {
-                下の要素にフォーカス
+            if (nodes[parseInt(i) + 1]) {
+                i = parseInt(i) + 1;
+                nodes[i].firstElementChild.focus();
                 document.activeElement.scrollIntoView({
                     behavior: "auto",
                     block: "center"
                 });
-            }
+            };
+            console.log(i)
         }
 
     });
@@ -132,3 +143,4 @@ javascript: (() => {
 
 
 })()
+
