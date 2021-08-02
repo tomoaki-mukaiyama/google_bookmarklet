@@ -1,19 +1,8 @@
 javascript: (() => {
 
-
-    window.addEventListener("keydown", function (event) {
-        document.activeElement.scrollIntoView({
-            behavior: "instant",
-            block: "center"
-        });
-    });
-
-    skipToContent();
-
-    function skipToContent() {
-        var nodes = document.querySelectorAll(".yuRUbf");
-        nodes[0].firstElementChild.focus();
-    };
+    if (document.querySelector("#rhs")) {
+        document.querySelector("#rhs").remove();
+    }
 
     document.querySelector("#pnnext").onfocus = function () {
         skipToContent();
@@ -120,5 +109,29 @@ javascript: (() => {
         })
     };
 
+    skipToContent();
 
+    function skipToContent() {
+        var nodes = document.querySelectorAll(".yuRUbf");
+        nodes[0].firstElementChild.focus();
+    };
+
+
+    const LISTENER_ADDED = "focusListener-added";
+    var nodes = document.querySelectorAll(".yuRUbf");
+    if (nodes[0].classList.contains(LISTENER_ADDED)) {
+        return;
+    } else {
+        nodes[0].classList.add(LISTENER_ADDED);
+        nodes.forEach(node => {
+            node.firstElementChild.addEventListener("focus", function () {
+                document.activeElement.scrollIntoView({
+                    behavior: "instant",
+                    block: "center"
+                });
+            });
+        });
+    };
 })()
+
+
