@@ -1,5 +1,13 @@
 javascript: (() => {
 
+
+    window.addEventListener("keydown", function (event) {
+        document.activeElement.scrollIntoView({
+            behavior: "instant",
+            block: "center"
+        });
+    });
+
     skipToContent();
 
     function skipToContent() {
@@ -48,40 +56,12 @@ javascript: (() => {
             node.querySelector(".GHDvEf").remove();
         };
     });
-    
-if (document.querySelector(".logo").querySelector("a")) {
-    document.querySelector(".logo").querySelector("a").remove();
-}
 
-    var i = 0;
-    document.querySelector("#rso").addEventListener("keydown", function (event) {
-    
+    if (document.querySelector(".logo").querySelector("a")) {
+        document.querySelector(".logo").querySelector("a").remove();
+    }
 
-        var nodes = document.querySelectorAll(".yuRUbf");
 
-        if (event.key === "w") {
-            if (nodes[parseInt(i) - 1]) {
-                i = parseInt(i) - 1;
-                nodes[i].firstElementChild.focus();
-                document.activeElement.scrollIntoView({
-                    behavior: "auto",
-                    block: "center"
-                });
-            };
-            console.log(i)
-        } else if (event.key === "s") {
-            if (nodes[parseInt(i) + 1]) {
-                i = parseInt(i) + 1;
-                nodes[i].firstElementChild.focus();
-                document.activeElement.scrollIntoView({
-                    behavior: "auto",
-                    block: "center"
-                });
-            };
-            console.log(i)
-        }
-
-    });
 
 
     var nodes = document.querySelectorAll(".cUezCb.luh4tb.O9g5cc.uUPGi");
@@ -141,6 +121,4 @@ if (document.querySelector(".logo").querySelector("a")) {
     };
 
 
-
 })()
-
