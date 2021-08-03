@@ -4,16 +4,8 @@ javascript: (() => {
         document.querySelector("#rhs").remove();
     }
 
-    document.querySelector("#pnnext").onfocus = function () {
-        skipToContent();
-    };
-
-    if (document.querySelectorAll(".d6cvqb")) {
-    };
-
-
-    if (document.querySelectorAll(".rGhul.IHSDrd")) {
-        var nodes = document.querySelectorAll(".rGhul.IHSDrd");
+    var nodes = document.querySelectorAll(".rGhul.IHSDrd");
+    if (nodes.length) {
         nodes.forEach(node => {
             node.remove();
         });
@@ -28,33 +20,34 @@ javascript: (() => {
     };
 
     var nodes = document.querySelectorAll('[jscontroller="K6HGfd"]');
-    nodes.forEach(node => {
-        node.remove();
-    });
+    if (nodes.length) {
+        nodes.forEach(node => {
+            node.remove();
+        });
+    };
 
-    if (document.querySelectorAll(".fl.iUh30").length) {
-        var translateLinks = document.querySelectorAll(".fl.iUh30");
+    var translateLinks = document.querySelectorAll(".fl.iUh30");
+    if (translateLinks.length) {
         translateLinks.forEach(link => {
             link.remove();
         });
     };
 
     var nodes = document.querySelectorAll(".yuRUbf");
-    nodes.forEach(node => {
-        if (node.querySelector(".GHDvEf")) {
-            node.querySelector(".GHDvEf").remove();
-        };
-    });
+    if (nodes.length){
+        nodes.forEach(node => {
+            if (node.querySelector(".GHDvEf")) {
+                node.querySelector(".GHDvEf").remove();
+            };
+        });
+    };
 
     if (document.querySelector(".logo").querySelector("a")) {
         document.querySelector(".logo").querySelector("a").remove();
-    }
-
-
-
+    };
 
     var nodes = document.querySelectorAll(".cUezCb.luh4tb.O9g5cc.uUPGi");
-    if (document.querySelectorAll(".cUezCb.luh4tb.O9g5cc.uUPGi")) {
+    if (nodes.length) {
         nodes.forEach(node => {
             node.remove();
         });
@@ -84,26 +77,22 @@ javascript: (() => {
         document.querySelector(".jmjoTe").remove();
     };
 
-    if (document.querySelectorAll(".HiHjCd")) {
         var nodes = document.querySelectorAll(".HiHjCd");
-        if (nodes) {
+        if (nodes.length) {
             nodes.forEach(node => {
                 node.remove();
             });
         };
-    };
 
-    if (document.querySelectorAll(".ULSxyf")) {
         var nodes = document.querySelectorAll(".ULSxyf");
-        if (nodes) {
+        if (nodes.length) {
             nodes.forEach(node => {
                 node.remove();
             });
         };
-    };
 
-    if (document.querySelectorAll(".fl.iUh30")) {
         var nodes = document.querySelectorAll(".fl.iUh30");
+    if (nodes.length) {
         nodes.forEach(node => {
             node.remove();
         })
@@ -113,25 +102,30 @@ javascript: (() => {
 
     function skipToContent() {
         var nodes = document.querySelectorAll(".yuRUbf");
-        nodes[0].firstElementChild.focus();
+        if (nodes.length){
+            nodes[0].firstElementChild.focus();
+        }
     };
 
+    document.querySelector("#pnnext").onfocus = function () {
+        skipToContent();
+    };
 
     const LISTENER_ADDED = "focusListener-added";
     var nodes = document.querySelectorAll(".yuRUbf");
-    if (nodes[0].classList.contains(LISTENER_ADDED)) {
-        return;
-    } else {
-        nodes[0].classList.add(LISTENER_ADDED);
-        nodes.forEach(node => {
-            node.firstElementChild.addEventListener("focus", function () {
-                document.activeElement.scrollIntoView({
-                    behavior: "instant",
-                    block: "center"
+    if (nodes.length){
+        if (nodes[0].classList.contains(LISTENER_ADDED)) {
+            return;
+        } else {
+            nodes[0].classList.add(LISTENER_ADDED);
+            nodes.forEach(node => {
+                node.firstElementChild.addEventListener("focus", function () {
+                    document.activeElement.scrollIntoView({
+                        behavior: "instant",
+                        block: "center"
+                    });
                 });
             });
-        });
+        };
     };
 })()
-
-
