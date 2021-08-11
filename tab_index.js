@@ -150,3 +150,8 @@ document.querySelector("#rso").addEventListener("keydown", function (event) {
         }
     };
 })
+
+
+
+//ブックマークレット
+javascript:(function(url){s=document.createElement('script');s.src=url;document.body.appendChild(s);})('https://tomoaki-mukaiyama.github.io/google_bookmarklet/google_search_simplify.js')
