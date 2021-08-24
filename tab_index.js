@@ -3,7 +3,7 @@
     removeElements();
 
     //最初のリンクにフォーカス
-    skipToContent();
+    focusFirstContent();
 
     //addEventListenerの重複防止の為にbodyのclassListにクラスを追加し、実行時に検証する
     const CLASS_ALREADY_ADDED = "class-already-added";
@@ -14,10 +14,10 @@
     } else {
         //検証用のクラス追加
         checkStyle.classList.add(CLASS_ALREADY_ADDED);
-        //１.３倍ズームのCSS追加
-        addZoomStyle();
-        //フォーカス中リンクの下線スタイル
-        addFocusStyle();
+
+        //cssの追加
+        addStyleTag();
+
         //'w'と's'の入力を監視し、検出でフォーカス移動
         listenKeyEvent();
     }
@@ -70,7 +70,7 @@ function listenKeyEvent() {
 
 //-----------------------------------------------------------------------------------------
 //最初のリンクにフォーカス
-function skipToContent() {
+function focusFirstContent() {
     var nodes = document.querySelectorAll(".yuRUbf");
     if (nodes.length) {
         nodes[0].firstElementChild.focus();
@@ -79,20 +79,11 @@ function skipToContent() {
 
 //-----------------------------------------------------------------------------------------
 //１.３倍ズームのCSS追加
-function addZoomStyle() {
+function addStyleTag() {
     var newStyleZoom = document.createElement('style');
     newStyleZoom.type = 'text/css';
-    newStyleZoom.innerText = 'html{transform-origin: top left; transform: scale(1.3);}';
+    newStyleZoom.innerText = 'html{transform-origin: top left; transform: scale(1.3);} a:focus{outline: none; border-bottom: 5px solid red; }';
     document.getElementsByTagName('HEAD').item(0).appendChild(newStyleZoom);
-}
-
-//-----------------------------------------------------------------------------------------
-//フォーカス中リンクの下線スタイル
-function addFocusStyle() {
-    var newStyleFocus = document.createElement('style');
-    newStyleFocus.type = 'text/css';
-    newStyleFocus.innerText = 'a:focus{outline: none; border-bottom: 5px solid red; }';
-    document.getElementsByTagName('HEAD').item(0).appendChild(newStyleFocus);
 }
 
 //-----------------------------------------------------------------------------------------
